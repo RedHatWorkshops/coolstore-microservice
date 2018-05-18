@@ -352,9 +352,9 @@ function add_service_templates_to_projects() {
 # Deploy Nexus
 function deploy_nexus() {
   if [ -z "$ARG_MAVEN_MIRROR_URL" ] ; then # no maven mirror specified
-    local _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/nexus/master/nexus2-persistent-template.yaml"
+    local _TEMPLATE="https://raw.githubusercontent.com/RedHatWorkshops/nexus/master/nexus2-persistent-template.yaml"
     if [ "$ARG_EPHEMERAL" = true ] ; then
-      _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/nexus/master/nexus2-template.yaml"
+      _TEMPLATE="https://raw.githubusercontent.com/RedHatWorkshops/nexus/master/nexus2-template.yaml"
     fi
 
     echo_header "Deploying Sonatype Nexus repository manager..."
