@@ -466,7 +466,7 @@ objects:
             value: ${INVENTORY_DB_PASSWORD}
           - name: POSTGRESQL_DATABASE
             value: inventorydb
-          image: postgresql
+          image: postgresql-ephemeral
           imagePullPolicy: Always
           name: inventory-postgresql
           volumeMounts:
@@ -500,7 +500,7 @@ objects:
         - inventory-postgresql
         from:
           kind: ImageStreamTag
-          name: postgresql:latest
+          name: registry.access.redhat.com/rhscl/postgresql-95-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -699,7 +699,7 @@ objects:
             value: catalogdb
           - name: MONGODB_ADMIN_PASSWORD
             value: ${CATALOG_DB_PASSWORD}
-          image: mongodb
+          image: registry.access.redhat.com/rhscl/mongodb-36-rhel7
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 10
@@ -751,7 +751,7 @@ objects:
         - catalog-mongodb
         from:
           kind: ImageStreamTag
-          name: mongodb:3.2
+          name: registry.access.redhat.com/rhscl/mongodb-32-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -957,7 +957,7 @@ objects:
             value: ratingdb
           - name: MONGODB_ADMIN_PASSWORD
             value: ${RATING_DB_PASSWORD}
-          image: mongodb
+          image: registry.access.redhat.com/rhscl/mongodb-36-rhel7
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 10
@@ -1525,7 +1525,7 @@ objects:
         - review-postgresql
         from:
           kind: ImageStreamTag
-          name: postgresql:latest
+          name: registry.access.redhat.com/rhscl/postgresql-95-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
